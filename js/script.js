@@ -125,6 +125,14 @@ function findBombs() {
         // rimuoviamo la pssibilità di cliccare altro dato che abbiamo perso
         for (let i = 0; i < arrayNumbers.length; i++) {
             squareDimension[i].removeEventListener("click", findBombs);
+
+            // rendiamo tutte le caselle bomba rosse
+            let squareNumber = document.querySelectorAll(".square span")
+
+            if(arrayBombs.includes(parseInt(squareNumber[i].innerHTML))){
+                squareDimension[i].classList.add("red");
+            }
+            
         }
 
         document.querySelector("h2.message").innerHTML = `Hai perso, il tuo punteggio è ${points}`;
